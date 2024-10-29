@@ -19,9 +19,9 @@ sources:
             description: purchase amount
         tests:
           - unique:
-              column_name: "(date_date || '-' || orders_id)"
+              column_name: "(orders_id || '-' || pdt_id )"
           - not_null:
-              column_name: "(date_date || '-' || orders_id)"
+              column_name: "(orders_id || '-' || pdt_id)"
       - name: product
         identifier: raw_gz_product
         description: product of Greenweez / we have on row per product_id found with purchase price
