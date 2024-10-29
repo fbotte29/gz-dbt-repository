@@ -16,12 +16,19 @@ sources:
           - name: pdt_id
             description: product unique identifiant
           - name: revenue
-            description: purchase amount 
+            description: purchase amount
+        tests:
+          - unique:
+              column_name: "(date_date || '-' || orders_id)"
+          - not_null:
+              column_name: "(date_date || '-' || orders_id)"
       - name: product
         identifier: raw_gz_product
         description: product of Greenweez / we have on row per product_id found with purchase price
         tests:
           - unique:
+              column_name: "products_id"
+          - not_null:
               column_name: "products_id"
         columns:
           - name: products_id
@@ -33,6 +40,8 @@ sources:
         description: ship of Greenweez / we have on row per order_id found with shipping fee, log cost, ship cost
         tests:
           - unique:
+              column_name: "orders_id"
+          - not_null:
               column_name: "orders_id"
         columns:
           - name: orders_id
