@@ -11,7 +11,7 @@ sources:
         columns:
           - name: date_date
             description: purchase date
-          - name: order_id
+          - name: orders_id
             description: orders unique identifiant 
           - name: pdt_id
             description: product unique identifiant
@@ -20,16 +20,22 @@ sources:
       - name: product
         identifier: raw_gz_product
         description: product of Greenweez / we have on row per product_id found with purchase price
+        tests:
+          - unique:
+              column_name: "products_id"
         columns:
-          - name: product_id
+          - name: products_id
             description: product unique identifiant
           - name: purchSE_PRICE
             description: purchase price
       - name: ship
         identifier: raw_gz_ship
         description: ship of Greenweez / we have on row per order_id found with shipping fee, log cost, ship cost
+        tests:
+          - unique:
+              column_name: "orders_id"
         columns:
-          - name: order_id
+          - name: orders_id
             description: orders unique identifiant 
           - name: shipping_fee
             description: shipping fee
