@@ -2,9 +2,9 @@ With
 
 ref AS (
 
-select * from {{ ref('stg_raw__sales')}} s
+select quantity,products_id,purchase_price,products_id from {{ ref('stg_raw__sales')}} s
 LEFT JOIN {{ ref('stg_raw__product') }} p
-ON s.products_id = p.products_id
+ON s.product_id = p.products_id
 ),
 
 pcost as (
