@@ -24,5 +24,3 @@ quantity,
 purchase_cost,
 ROUND((revenue - purchase_cost),2) AS margin
 from pcost
-
--- select purchase_price,quantity,purchase_cost from pcost
